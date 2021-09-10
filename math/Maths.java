@@ -31,6 +31,6 @@ public final class Maths {
 	//absolute value command, takes double
 	public static double abs(double inpu) {
 		if(inpu>0){return inpu;}
-		else{return 0;}
+		else{return inpu*(-1);}
 	}
 }
