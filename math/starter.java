@@ -8,5 +8,6 @@ public class starter {
 		System.out.println(Maths.floorD(test));
 		System.out.println(Maths.ceilD(test));
 		System.out.println(Maths.round(900000.121));
+		System.out.println(Maths.abs(-6));
 	}
 }
