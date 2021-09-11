@@ -72,4 +72,7 @@ public final class Maths {
 		}
 		return sqt;
 	}
+	
+	//averaging function, takes unlimited doubles
+	public static double avg(int ... inp)
 }
