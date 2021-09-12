@@ -16,5 +16,6 @@ public class starter {
 		System.out.println(Maths.sqrt(11));
 		System.out.println(Maths.avg(1));
 		System.out.println(Maths.rand(1,1));
+		
 	}
 }

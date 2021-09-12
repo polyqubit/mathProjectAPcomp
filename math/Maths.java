@@ -87,6 +87,10 @@ public final class Maths {
 	//random command, takes an integer seed and an upper bound
 	public static double rand(int seed, int limit) {
 		double tiom = System.currentTimeMillis()*seed;
-		int[] lims = new int[];
+		int[] lims = new int[limit];
+		for(int i=0;i<lims.length;i++) {
+			lims[i] = i;
+		}
+		return tiom%10;
 	}
 }
