@@ -1,5 +1,6 @@
 import pkg.*;
 import java.util.ArrayList;
+import java.time.Clock;
 
 public class starter {
 
@@ -13,5 +14,7 @@ public class starter {
 		System.out.println(Maths.min(-100,200,300,400,-9.0));
 		System.out.println(Maths.pow(-9,3));
 		System.out.println(Maths.sqrt(11));
+		System.out.println(Maths.avg(1));
+		System.out.println(Maths.rand(1,1));
 	}
 }

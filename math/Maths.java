@@ -1,8 +1,10 @@
 import pkg.*;
 import java.util.ArrayList;
+import java.time.Clock;
 
 public final class Maths {
 	private static float mathnumber;
+	private static Clock clo;
 	private Maths () {
 		mathnumber = 0;
 	}
@@ -74,5 +76,17 @@ public final class Maths {
 	}
 	
 	//averaging function, takes unlimited doubles
-	public static double avg(int ... inp)
+	public static double avg(double ... inp) {
+		double sum = 0;
+		for(int i=0;i<inp.length;i++) {
+			sum += inp[i];
+		}
+		return sum/inp.length;
+	}
+	
+	//random command, takes an integer seed and an upper bound
+	public static double rand(int seed, int limit) {
+		double tiom = System.currentTimeMillis()*seed;
+		int[] lims = new int[];
+	}
 }
