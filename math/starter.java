@@ -21,27 +21,28 @@ public class starter {
 		
 		test code 
 		**/
-		Double randoms[] = new Double[1000];
-		for(int i=0;i<randoms.length;i++) {
-			randoms[i]=Maths.rand(100);
+		ArrayList<Double> randoms = new ArrayList<Double>(1000);
+		for(int i=0;i<randoms.size();i++) {
+			randoms.set(i,Maths.rand(100));
 			Canvas.pause(1);
 		}
 		
-		System.out.println("Base array:\n"+Arrays.toString(randoms));
+		System.out.println("Base array:\n"+Arrays.toString(randoms.toArray()));
 		
-		Double pows[] = new Double[1000];
-		for(int i=0;i<pows.length;i++) {
-			pows[i]=Maths.pow(randoms[i],2);
+		ArrayList<Double> pows = new ArrayList<Double>(1000);
+		for(int i=0;i<pows.size();i++) {
+			pows.set(i,Maths.pow(randoms.get(i),2));
+			Canvas.pause(1);
 		}
 
-		System.out.println("Squared array:\n"+Arrays.toString(pows));
+		System.out.println("Squared array:\n"+Arrays.toString(randoms.toArray()));
 		
-		Double sqrts[] = new Double[1000];
-		for(int i=0;i<sqrts.length;i++) {
-			sqrts[i]=Maths.sqrt(randoms[i]);
+		ArrayList<Double> sqrts = new ArrayList<Double>(1000);
+		for(int i=0;i<sqrts.size();i++) {
+			sqrts.set(i,Maths.sqrt(randoms.get(i)));
 		}
 
-		System.out.println("SqrRoot array:\n"+Arrays.toString(sqrts));
+		System.out.println("SqrRoot array:\n"+Arrays.toString(sqrts.toArray()));
 		
 	}
 }
