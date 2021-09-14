@@ -63,9 +63,9 @@ public final class Maths {
 		return d;
 	}
 	
-	//root command, takes an int base and an int root
+	//root command, takes a double base
 	//note: not my code, couldn't figure out a way to do this
-	public static double sqrt(int base) {
+	public static double sqrt(double base) {
 		double a = 0;
 		double sqt = base/2;
 		while((a-sqt)!=0){
@@ -84,13 +84,14 @@ public final class Maths {
 		return sum/inp.length;
 	}
 	
-	//random command, takes an integer seed and an upper bound
-	public static double rand(int seed, int limit) {
-		double tiom = System.currentTimeMillis()*seed;
-		int[] lims = new int[limit];
-		for(int i=0;i<lims.length;i++) {
-			lims[i] = i;
+	//random command, takes an integer upper bound
+	public static double rand(int limit) {
+		double tiom = System.currentTimeMillis()*System.currentTimeMillis()*30109.14159265358979;
+		if(tiom<0){	
+			return tiom%(limit+1)*(-1);
 		}
-		return tiom%10;
+		else{
+			return tiom%(limit+1);
+		}
 	}
 }
