@@ -22,14 +22,17 @@ public class starter {
 		test code 
 		**/
 		System.out.print("baseArray[ ");
+		double avg=0;
 		ArrayList<Double> randoms = new ArrayList<Double>(1000);
 		for(int i=0;i<1000;i++) {
 			randoms.add(Maths.rand(100));
 			Canvas.pause(1);
+			avg += randoms.get(i);
 			if(i<999){System.out.print(randoms.get(i)+", ");}
 			else{System.out.print(randoms.get(i));break;}
 		}
-		System.out.print(" ]\n\n\n");
+		System.out.print(" ]\nAverage of array:"+avg/1000+"\n\n\n");
+		avg=0;
 		
 		//System.out.println("Base array:\n"+Arrays.toString(randoms.toArray()));
 		
@@ -38,20 +41,23 @@ public class starter {
 		for(int i=0;i<1000;i++) {
 			pows.add(Maths.pow(randoms.get(i),2));
 			Canvas.pause(1);
+			avg+=pows.get(i);
 			if(i<999){System.out.print(pows.get(i)+", ");}
 			else{System.out.print(pows.get(i));break;}
 		}
-		System.out.print(" ]\n\n\n");
+		System.out.print(" ]\nAverage of array:"+avg/1000+"\n\n\n");
+		avg=0;
 
 		System.out.print("sqrtArray[ ");
 		ArrayList<Double> sqrts = new ArrayList<Double>(1000);
 		for(int i=0;i<1000;i++) {
 			sqrts.add(Maths.sqrt(randoms.get(i)));
 			Canvas.pause(1);
+			avg+=sqrts.get(i);
 			if(i<999){System.out.print(sqrts.get(i)+", ");}
 			else{System.out.print(sqrts.get(i));break;}
 		}
-		System.out.println(" ]");
+		System.out.print(" ]\nAverage of array:"+avg/1000);
 		
 	}
 }
