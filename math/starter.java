@@ -23,13 +23,21 @@ public class starter {
 		**/
 		System.out.print("baseArray[ ");
 		double avg=0;
-		double maxinp = 0;
-		double mininp = 0;		
+		double maxinp=0;
+		double mininp=0;
+		int col=0;
+		Rectangle point;
+		Color pc;
 		ArrayList<Double> randoms = new ArrayList<Double>(1000);
 		for(int i=0;i<1000;i++) {
-			randoms.add(Maths.rand(100));
+			randoms.add(Maths.rand(255));
 			Canvas.pause(1);
 			avg += randoms.get(i);
+			point = new Rectangle(randoms.get(i)*1.5,250,2,5);
+			col = Maths.floorD(randoms.get(i));
+			pc = new Color(col,col,100);
+			point.setColor(pc);
+			point.fill();
 			if (randoms.get(i)>maxinp) {maxinp=randoms.get(i);}
 			if (randoms.get(i)<mininp) {mininp=randoms.get(i);}
 			if(i<999){System.out.print(randoms.get(i)+", ");}

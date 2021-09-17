@@ -87,11 +87,27 @@ public final class Maths {
 	//random command, takes an integer upper bound
 	public static double rand(int limit) {
 		double tiom = System.currentTimeMillis()*System.currentTimeMillis()*30109.14159265358979;
-		if(tiom<0){	
-			return tiom%(limit+1)*(-1);
+		int[] list = new int[limit+1];
+		for(int i=0;i<list.length;i++){
+			list[i]=i;
+		}
+		if(limit%2==0){
+			if(tiom<0){	
+				tiom = tiom%(limit+1)*(-1);
+			}
+			else{
+				tiom = tiom%(limit+1);
+			}
 		}
 		else{
-			return tiom%(limit+1);
+			if(tiom<0){	
+				tiom = tiom%(limit)*(-1);
+			}
+			else{
+				tiom = tiom%(limit);
+			}
 		}
+		int toim = (int) tiom;
+		return list[toim];
 	}
 }
