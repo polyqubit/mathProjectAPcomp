@@ -23,16 +23,22 @@ public class starter {
 		**/
 		System.out.print("baseArray[ ");
 		double avg=0;
+		double maxinp = 0;
+		double mininp = 0;		
 		ArrayList<Double> randoms = new ArrayList<Double>(1000);
 		for(int i=0;i<1000;i++) {
 			randoms.add(Maths.rand(100));
 			Canvas.pause(1);
 			avg += randoms.get(i);
+			if (randoms.get(i)>maxinp) {maxinp=randoms.get(i);}
+			if (randoms.get(i)<mininp) {mininp=randoms.get(i);}
 			if(i<999){System.out.print(randoms.get(i)+", ");}
 			else{System.out.print(randoms.get(i));break;}
 		}
-		System.out.print(" ]\nAverage of array:"+avg/1000+"\n\n\n");
+		System.out.print(" ]\nAverage of array:"+avg/1000+"\nMax,Min of array:"+maxinp+", "+mininp+"\n\n\n");
 		avg=0;
+		maxinp=0;
+		mininp=0;
 		
 		//System.out.println("Base array:\n"+Arrays.toString(randoms.toArray()));
 		
@@ -42,11 +48,15 @@ public class starter {
 			pows.add(Maths.pow(randoms.get(i),2));
 			Canvas.pause(1);
 			avg+=pows.get(i);
+			if (pows.get(i)>maxinp) {maxinp=pows.get(i);}
+			if (pows.get(i)<mininp) {mininp=pows.get(i);}
 			if(i<999){System.out.print(pows.get(i)+", ");}
 			else{System.out.print(pows.get(i));break;}
 		}
-		System.out.print(" ]\nAverage of array:"+avg/1000+"\n\n\n");
+		System.out.print(" ]\nAverage of array:"+avg/1000+"\nMax,Min of array:"+maxinp+", "+mininp+"\n\n\n");
 		avg=0;
+		maxinp=0;
+		mininp=0;
 
 		System.out.print("sqrtArray[ ");
 		ArrayList<Double> sqrts = new ArrayList<Double>(1000);
@@ -54,10 +64,12 @@ public class starter {
 			sqrts.add(Maths.sqrt(randoms.get(i)));
 			Canvas.pause(1);
 			avg+=sqrts.get(i);
+			if (sqrts.get(i)>maxinp) {maxinp=sqrts.get(i);}
+			if (sqrts.get(i)<mininp) {mininp=sqrts.get(i);}
 			if(i<999){System.out.print(sqrts.get(i)+", ");}
 			else{System.out.print(sqrts.get(i));break;}
 		}
-		System.out.print(" ]\nAverage of array:"+avg/1000);
+		System.out.print(" ]\nAverage of array:"+avg/1000+"\nMax,Min of array:"+maxinp+", "+mininp+"\n\n\n");
 		
 	}
 }
