@@ -6,21 +6,25 @@ import java.time.Clock;
 public class starter {
 
 	public static void main(String args[]) {
-		/**double test = 9.901;
-		System.out.println(Maths.floorD(test));
-		System.out.println(Maths.ceilD(test));
-		System.out.println(Maths.round(900000.121));
-		System.out.println(Maths.abs(-6));
-		System.out.println(Maths.max(1,2,3,4,9,0.07));
-		System.out.println(Maths.min(-100,200,300,400,-9.0));
-		System.out.println(Maths.pow(-9,3));
-		System.out.println(Maths.sqrt(11));
-		System.out.println(Maths.avg(1));
-		System.out.printf("%.0f\n", Maths.rand(1000000000));
-		System.out.println(Maths.avg(1,5,7,8));
+		/**
+		Maths Mathss = new Maths(-9.093);
+		System.out.println(Mathss.floorD());
+		System.out.println(Mathss.ceilD());
+		System.out.println(Mathss.round());
+		System.out.println(Mathss.abs());
+		System.out.println(Mathss.max(1,2,3,4,9,0.07));
+		System.out.println(Mathss.min(-100,200,300,400,-9.0));
+		System.out.println(Mathss.pow(3));
+		System.out.println(Mathss.sqrt());
+		System.out.println(Mathss.avg(1));
+		System.out.printf("%.0f\n", Mathss.rand(100000000));
+		System.out.println(Mathss.avg(1,5,7,8));
 		
-		test code 
+		test code
 		**/
+		
+		Maths mNum = new Maths(0);
+		double nNum;
 		System.out.print("baseArray[ ");
 		double avg=0;
 		double maxinp=0;
@@ -30,11 +34,13 @@ public class starter {
 		Color pc;
 		ArrayList<Double> randoms = new ArrayList<Double>(2000);
 		for(int i=0;i<2000;i++) {
-			randoms.add(Maths.rand(255));
+			nNum = mNum.rand(255);
+			mNum = new Maths(nNum);
+			randoms.add(nNum);
 			Canvas.pause(1);
 			avg += randoms.get(i);
 			point = new Rectangle(randoms.get(i)*1.5,250,2,5);
-			col = Maths.floorD(randoms.get(i));
+			col = mNum.floorD();
 			pc = new Color(col,col/2,100);
 			point.setColor(pc);
 			point.fill();
@@ -47,13 +53,15 @@ public class starter {
 		avg=0;
 		maxinp=0;
 		mininp=0;
+		mNum = new Maths(0);
 		
 		//System.out.println("Base array:\n"+Arrays.toString(randoms.toArray()));
 		
 		System.out.print("powArray[ ");
 		ArrayList<Double> pows = new ArrayList<Double>(2000);
 		for(int i=0;i<2000;i++) {
-			pows.add(Maths.pow(randoms.get(i),2));
+			mNum = new Maths(randoms.get(i));
+			pows.add(mNum.pow(2));
 			Canvas.pause(1);
 			avg+=pows.get(i);
 			if (pows.get(i)>maxinp) {maxinp=pows.get(i);}
@@ -65,11 +73,13 @@ public class starter {
 		avg=0;
 		maxinp=0;
 		mininp=0;
+		mNum = new Maths(0);
 
 		System.out.print("sqrtArray[ ");
 		ArrayList<Double> sqrts = new ArrayList<Double>(2000);
 		for(int i=0;i<2000;i++) {
-			sqrts.add(Maths.sqrt(randoms.get(i)));
+			mNum = new Maths(randoms.get(i));
+			sqrts.add(mNum.sqrt());
 			Canvas.pause(1);
 			avg+=sqrts.get(i);
 			if (sqrts.get(i)>maxinp) {maxinp=sqrts.get(i);}

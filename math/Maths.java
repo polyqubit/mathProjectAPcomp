@@ -2,42 +2,49 @@ import pkg.*;
 import java.util.ArrayList;
 import java.time.Clock;
 
-public final class Maths {
-	private static float mathnumber;
-	private static Clock clo;
-	private Maths () {
-		mathnumber = 0;
+public class Maths {
+	private double mathnumber;
+	private Clock clo;
+	public Maths (double inp) {
+		mathnumber = inp;
 	}
 	
 	//floor, takes double
-	public static int floorD(double inp) {
-		return (int) inp;
+	public int floorD() {
+		return (int) mathnumber;
 	}
 	
 	//ceiling command, takes double
-	public static int ceilD(double inp) {
-		int benchmark = (int) inp;
-		if(inp>benchmark){return (int) inp+1;}
-		else if(inp==benchmark){return (int) inp;}
-		else{return 0;}
+	public int ceilD() {
+		int benchmark = (int) mathnumber;
+		if(mathnumber>0){
+			if(mathnumber>benchmark){return (int) mathnumber+1;}
+			else if(mathnumber==benchmark){return (int) mathnumber;}
+			else{return 0;}
+		}
+		else{
+			if(mathnumber<benchmark){return (int) mathnumber-1;}
+			else if(mathnumber==benchmark){return (int) mathnumber;}
+			else{return 0;}
+		}
 	}
 	
 	//round command, takes double
-	public static int round(double inp) {
-		double benchmark = (int) inp+0.5;
-		if(inp<benchmark){return (int) inp;}
-		else if(inp>benchmark){return (int) inp+1;}
-		else{return (int) inp+1;}
+	public int round() {
+		double benchmark = (int) mathnumber+0.5;
+		if(mathnumber<benchmark){return (int) mathnumber;}
+		else if(mathnumber>benchmark){return (int) mathnumber+1;}
+		else{return (int) mathnumber+1;}
 	}
 	
 	//absolute value command, takes double
-	public static double abs(double inp) {
-		if(inp>0){return inp;}
-		else{return inp*(-1);}
+	public double abs() {
+		if(mathnumber>0){return mathnumber;}
+		else{return mathnumber*(-1);}
 	}
 	
 	//maximum command, takes unlimited doubles
-	public static double max(double ... inp) {
+	public double max(double ... inp) {
 		double maxinp = inp[0];
 		for(int i=1;i<inp.length;i++) {
 			if (inp[i]>maxinp) {maxinp=inp[i];}
@@ -46,7 +53,7 @@ public final class Maths {
 	}
 	
 	//minimum command, takes unlimited doubles
-	public static double min(double ... inp) {
+	public double min(double ... inp) {
 		double mininp = inp[0];
 		for(int i=1;i<inp.length;i++) {
 			if (inp[i]<mininp) {mininp=inp[i];}
@@ -55,28 +62,29 @@ public final class Maths {
 	}
 	
 	//power command, takes a double base and an int exponent
-	public static double pow(double base, int exp) {
+	public double pow(int exp) {
 		if(exp<=0) {return 1;}
 		int c = 1;
-		double d = base;
-		while(c<exp) {d=d*base;c++;}
+		double d = mathnumber;
+		while(c<exp) {d=d*mathnumber;c++;}
 		return d;
 	}
 	
 	//root command, takes a double base
 	//note: not my code, couldn't figure out a way to do this
-	public static double sqrt(double base) {
+	public double sqrt() {
+		if(mathnumber<0){return 0;}
 		double a = 0;
-		double sqt = base/2;
+		double sqt = mathnumber/2;
 		while((a-sqt)!=0){
 			a = sqt;
-			sqt = (a+(base/a))/2;
+			sqt = (a+(mathnumber/a))/2;
 		}
 		return sqt;
 	}
 	
 	//averaging function, takes unlimited doubles
-	public static double avg(double ... inp) {
+	public double avg(double ... inp) {
 		double sum = 0;
 		for(int i=0;i<inp.length;i++) {
 			sum += inp[i];
@@ -85,7 +93,8 @@ public final class Maths {
 	}
 	
 	//random command, takes an integer upper bound
-	public static double rand(int limit) {
+	public double rand(int limit) {
+		if(limit>100000000) {limit=100000000;}
 		double tiom = System.currentTimeMillis()*System.currentTimeMillis()*30109.14159265358979;
 		int[] list = new int[limit+1];
 		for(int i=0;i<list.length;i++){
