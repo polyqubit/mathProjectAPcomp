@@ -128,56 +128,56 @@ class nMath extends Maths {
 	}
 	public int ceilD(int flag) {
 		int x = super.ceilD();
-		if((flag & 0b0000000010) !=0) {System.out.print(x);};
+		if((flag & 0b0000000010) !=2) {System.out.print(x);};
 		return(x);
 	}
 	
 	public int round(int flag) {
 		int x = super.round();
-		if((flag & 0b0000000100) !=0) {System.out.print(x);};
+		if((flag & 0b0000000100) !=4) {System.out.print(x);};
 		return(x);
 	}
 	
 	public double abs(int flag) {
 		double x = super.abs();
-		if((flag & 0b0000001000) !=0) {System.out.print(x);};
+		if((flag & 0b0000001000) !=8) {System.out.print(x);};
 		return(x);
 	}
 	
 	public double max(int flag, double ... inp) {
 		double x = super.max(inp);
-		if((flag & 0b0000010000) !=0) {System.out.print(x);};
+		if((flag & 0b0000010000) !=16) {System.out.print(x);};
 		return(x);
 	}
 	
 	public double min(int flag, double ... inp) {
 		double x = super.min(inp);
-		if((flag & 0b0000100000) !=0) {System.out.print(x);};
+		if((flag & 0b0000100000) !=32) {System.out.print(x);};
 		return(x);
 	}
 
 	public double pow(int flag, int exp) {
 		double x = super.pow(exp);
-		if((flag & 0b0001000000) !=0) {System.out.print(x);};
+		if((flag & 0b0001000000) !=64) {System.out.print(x);};
 		return(x);
 	}
 
 	public double sqrt(int flag) {
 		double x = super.sqrt();
-		if((flag & 0b0010000000) !=0) {System.out.print(x);};
+		if((flag & 0b0010000000) !=128) {System.out.print(x);};
 		return(x);
 	}
 	
 
 	public double avg(int flag, double ... inp) {
 		double x = super.avg(inp);
-		if((flag & 0b0100000000) !=0) {System.out.print(x);};
+		if((flag & 0b0100000000) !=256) {System.out.print(x);};
 		return(x);
 	}
 
 	public double rand(int flag, int limit) {
 		double x = super.rand(limit);
-		if((flag & 0b1000000000) !=0) {System.out.print(x);};
+		if((flag & 0b1000000000) !=512) {System.out.print(x);};
 		return(x);
 	}
 }
