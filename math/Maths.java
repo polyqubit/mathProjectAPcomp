@@ -119,55 +119,72 @@ public class Maths {
 class nMath extends Maths {
 	double num = 0;
 	public nMath(double inp) {
-		num = inp;
 		super(inp);
 	}
-	public int floorD() {
-		return(super.floorD());
+	public int floorD(int flag) {
+		int x = super.floorD();
+		if((flag & 0b0000000001) !=0) {System.out.print(x);};
+		return(x);
 	}
-	public int ceilD() {
-		return(super.ceilD());
-	}
-	
-	//round command, takes double
-	public int round() {
-		return(super.round());
-	}
-	
-	//absolute value command, takes double
-	public double abs() {
-		return(super.abs());
+	public int ceilD(int flag) {
+		int x = super.ceilD();
+		if((flag & 0b0000000010) !=0) {System.out.print(x);};
+		return(x);
 	}
 	
-	//maximum command, takes unlimited doubles
-	public double max(double ... inp) {
-		return(super.max(inp));
+	public int round(int flag) {
+		int x = super.round();
+		if((flag & 0b0000000100) !=0) {System.out.print(x);};
+		return(x);
 	}
 	
-	//minimum command, takes unlimited doubles
-	double min(double ... inp) {
-		return(super.min(inp));
+	public double abs(int flag) {
+		double x = super.abs();
+		if((flag & 0b0000001000) !=0) {System.out.print(x);};
+		return(x);
 	}
 	
-	//power command, takes a double base and an int exponent
-	double pow(int exp) {
-		return(super.pow(exp));
+	public double max(int flag, double ... inp) {
+		double x = super.max(inp);
+		if((flag & 0b0000010000) !=0) {System.out.print(x);};
+		return(x);
 	}
 	
-	//root command, takes a double base
-	//note: not my code, couldn't figure out a way to do this
-	double sqrt() {
-		return(super.sqrt());
+	public double min(int flag, double ... inp) {
+		double x = super.min(inp);
+		if((flag & 0b0000100000) !=0) {System.out.print(x);};
+		return(x);
+	}
+
+	public double pow(int flag, int exp) {
+		double x = super.pow(exp);
+		if((flag & 0b0001000000) !=0) {System.out.print(x);};
+		return(x);
+	}
+
+	public double sqrt(int flag) {
+		double x = super.sqrt();
+		if((flag & 0b0010000000) !=0) {System.out.print(x);};
+		return(x);
 	}
 	
-	//averaging function, takes unlimited doubles
-	double avg(double ... inp) {
-		return(super.avg(inp));
+
+	public double avg(int flag, double ... inp) {
+		double x = super.avg(inp);
+		if((flag & 0b0100000000) !=0) {System.out.print(x);};
+		return(x);
 	}
-	
-	//random command, takes an integer upper bound
-	double rand(int limit) {
-		return(super.rand(limit));
+
+	public double rand(int flag, int limit) {
+		double x = super.rand(limit);
+		if((flag & 0b1000000000) !=0) {System.out.print(x);};
+		return(x);
 	}
 }
+
+
+
+
+
+
 
